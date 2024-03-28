@@ -28,7 +28,14 @@
       
           <button type="submit" class="registerbtn">Register</button>
         </div>
-      
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <class="flashes" style="color: red;"> 
+                {% for message in messages %}
+                    <h2>{{ message }}</h2>
+                {% endfor %}
+        {% endif %}
+        {% endwith %}
         <div class="container signin">
           <p>Already have an account? <a href="{{url_for('login')}}">Login</a>.</p>
         </div>

@@ -63,16 +63,47 @@ def logout():
     # Redirect to the login page or any other page you prefer
     return redirect(url_for('login'))
 
-@app.route('/register',methods=['GET','POST'])
+# @app.route('/register',methods=['GET','POST'])
+# def register():
+#     session.clear()
+#     if request.method=='POST':
+#         username = request.form['username']
+#         password = request.form['password']
+#         password_repeat = request.form['password-repeat']
+
+#         # Check if password and password-repeat match
+#         if password == password_repeat:
+#             # Hash the password
+#             hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+
+#             # Store hashed password in the database
+#             new_user = User(username=username, password=hashed_password)
+#             db.session.add(new_user)
+#             db.session.commit()
+#             session["user_id"] = new_user.id
+#             session["username"] = new_user.username
+#             return render_template('index.html', username=username)
+
+#         else:
+#             return "Password and password-repeat do not match"
+
+#     return render_template("register.html")
+
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     session.clear()
-    if request.method=='POST':
+    if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
         password_repeat = request.form['password-repeat']
 
         # Check if password and password-repeat match
         if password == password_repeat:
+            # Check if the username already exists
+            existing_user = User.query.filter_by(username=username).first()
+            if existing_user:
+                return "Username already exists. Please choose a different username."
+            
             # Hash the password
             hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
@@ -80,14 +111,17 @@ def register():
             new_user = User(username=username, password=hashed_password)
             db.session.add(new_user)
             db.session.commit()
+
+            # Store user information in the session
             session["user_id"] = new_user.id
             session["username"] = new_user.username
-            return render_template('index.html', username=username)
 
+            return render_template('index.html', username=username)
         else:
             return "Password and password-repeat do not match"
 
     return render_template("register.html")
+
 
 @app.route('/dashboard')
 def dashboard():
@@ -120,6 +154,14 @@ def ssort():
     username = session.get('username')
 
     return render_template('ssort.html', user_id=user_id, username=username)
+
+@app.route('/qsort')
+def qsort():
+        # Access user info from the session
+    user_id = session.get('user_id')
+    username = session.get('username')
+
+    return render_template('qsort.html', user_id=user_id, username=username)
 
 if __name__=='__main__':
     app.run(debug=True)

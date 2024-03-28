@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorting visualizer</title>
-    <link rel="stylesheet" href="/static/style.css"><link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/responsive.css"><link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 <body>
@@ -14,7 +14,6 @@
             <div class="l">  <i class='bx Sorting visualizerbx-bar-chart-alt-2'></i>
                 <samp>Sorting Visiualizer</samp></div>
             <div class="r"> <p>{{username}}</p>  </div>
-           
            
 
         </div>
@@ -45,6 +44,11 @@
                         <li>
                             <a href=" {{ url_for('ssort')}} ">
                                 <samp>Selection Sort</samp>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" {{ url_for('qsort')}} ">
+                                <samp>Quick Sort</samp>
                             </a>
                         </li>
                     </ul>
@@ -100,7 +104,7 @@
             
                 <div class="speed-control">
                     <label for="speedRange">Animation Speed:</label>
-                    <input type="range" id="speedRange" min="40" max="500" value="50">
+                    <input type="range" id="speedRange" min="20" max="500" value="50">
                     <span id="speedValue">50</span>
                 </div>
             </div>
@@ -113,6 +117,12 @@
                     <button onClick="insert()">Insertion Sort</button>
                     <button onClick="ssort()">Selection Sort</button>
                     <button onClick="qsort()">Quick Sort</button>
+                    <!-- <select id="algorithmSelect">
+                        <option value="bubbleSort">Bubble Sort</option>
+                        <!-- Add options for other sorting algorithms if needed -->
+                    <!-- </select>
+                    <button onclick="singleStep()">Single Step</button> --> -->
+                    
                     <!-- <button onclick="toggleAnimation()">Pause/Resume</button>
                     <button onclick="restartAnimation()">Restart</button> -->
                 </div>
@@ -147,8 +157,7 @@ functioning while having fun!
 </pre> -->
 <pre>
     
-  Sorting algorithms are used to sort a data structure according to a specific order relationship, such as numerical order or 
-  lexicographical order.
+  Sorting algorithms are used to sort a data structure according to a specific order relationship, such as numerical order.
 
   This operation is one of the most important and widespread in computer science. For a long time, new methods have bee developed 
   to make this procedure faster and faster.

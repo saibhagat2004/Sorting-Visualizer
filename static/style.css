@@ -3,7 +3,7 @@ body {
     padding: 0px;
       border: 0px;
     }
-
+    
 .parent {
     display: grid;
     height: 167vh;
@@ -217,3 +217,24 @@ button:focus {
     border-radius: 20px;
     background-color: rgb(137, 225, 137);
 }
+
+.div4 pre{
+    font-family:Arial;
+    font-size: 25px;
+}
+
+
+
+/* Media query for tablets */
+@media (max-width: 768px) {
+    body {
+      font-size: 14px; /* Adjust font size for smaller screens */
+    }
+  }
+  
+  /* Media query for smartphones */
+  @media (max-width: 480px) {
+    body {
+      font-size: 12px; /* Further adjust font size for smaller screens */
+    }
+  }
