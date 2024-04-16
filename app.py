@@ -9,12 +9,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:sai@localhost:543
 db= SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
-
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     password= db.Column(db.String(120), unique=True, nullable=False)
-
 with app.app_context():
     db.create_all() 
 
@@ -101,8 +99,10 @@ def register():
         if password == password_repeat:
             # Check if the username already exists
             existing_user = User.query.filter_by(username=username).first()
-            if existing_user:
-                return "Username already exists. Please choose a different username."
+            if existing_user: 
+                 flash("Username already exists. Please choose a different username.", 'danger')
+                 return render_template('register.html')
+
             
             # Hash the password
             hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
@@ -118,7 +118,8 @@ def register():
 
             return render_template('index.html', username=username)
         else:
-            return "Password and password-repeat do not match"
+            flash("Password and password-repeat do not match", 'danger')
+            return render_template('register.html')
 
     return render_template("register.html")
 
@@ -160,7 +161,6 @@ def qsort():
         # Access user info from the session
     user_id = session.get('user_id')
     username = session.get('username')
-
     return render_template('qsort.html', user_id=user_id, username=username)
 
 if __name__=='__main__':

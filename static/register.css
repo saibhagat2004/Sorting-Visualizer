@@ -11,9 +11,13 @@ body{
 .container {
   padding: 16px;
   width: 550px;
-  
+  background-color: whitesmoke;
+  border-radius: 20px;
 }
 
+.div1{
+  border-radius: 20px;
+}
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;
@@ -37,7 +41,7 @@ hr {
 
 /* Set a style for the submit/register button */
 .registerbtn {
-  background-color: #04AA6D;
+  background-color: rgb(1, 130, 232);
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
@@ -60,4 +64,5 @@ a {
 .signin {
   background-color: #f1f1f1;
   text-align: center;
+
 }

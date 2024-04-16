@@ -6,8 +6,9 @@
     <title>Login</title>
     <link href="/static/register.css" rel="stylesheet">
 </head>
-<body>
-    <form action="/register" method="POST">
+<body style="background-color: rgb(199, 224, 246);">
+    <div1>
+      <form action="/register" method="POST">
         <div class="container">
           <h1>Register</h1>
           <p>Please fill in this form to create an account.</p>
@@ -27,6 +28,10 @@
           <hr>
       
           <button type="submit" class="registerbtn">Register</button>
+          <div class="signin">
+            <p>Already have an account? <a href="{{url_for('login')}}">Login</a>.</p>
+          </div>
+        </form>
         </div>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -36,9 +41,11 @@
                 {% endfor %}
         {% endif %}
         {% endwith %}
-        <div class="container signin">
-          <p>Already have an account? <a href="{{url_for('login')}}">Login</a>.</p>
-        </div>
-      </form>
+  
+    </div1>
+    <div2>
+        <img style="max-width: 480px; margin-left: 113px;" src="/static/images/authentication.jpg" alt="authentication image">
+    </div2>
+    
 </body>
 </html>
