@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time Complexity of Algorithms</title>
+<style>
+table {
+  background-color: white;
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+</style>
+<link rel="stylesheet" href="/static/time.css"><link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="/static/bsort.css"><link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="/static/rabinKarpAlgo.css">
+
+</head>
+<body>
+    <div class="parent">
+        <div class="div1">
+            <i class='bx bx-bar-chart-alt-2'></i>
+            <samp>Time complexity</samp> 
+
+        </div>
+        <div class="div2">
+            <div class="top">
+                <i class='bx bx-menu'></i>
+                <samp class="heading">Menu</samp>
+            </div>
+       
+        
+            <ul>
+                <li>
+                    <a href="{{ url_for('dashboard') }}">
+                        <i class='bx bxs-home'></i>
+                        <samp>Home</samp>
+                    </a>
+                </li>
+                <li class="dropdown-toggle">
+                    <i class='bx bxs-right-arrow bx-sm '></i>
+                    <span>Sorting Algorithm</span>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ url_for('bsort') }}">
+                                <samp>Bubble Sorting</samp>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('insert')}}">
+                                <samp>Insertion Sorting</samp>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" {{ url_for('ssort')}} ">
+                                <samp>Selection Sort</samp>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" {{ url_for('qsort')}} ">
+                                <samp>Quick Sort</samp>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown-toggle">
+                    <i class='bx bxs-right-arrow bx-sm '></i>
+                    <span>String matching Algo</span>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ url_for('naive')}}">
+                                <samp>Naive-String Algorithm</samp>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('rabin')}}">
+                                <samp>Rabin-Karp</samp>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="#">
+                        <i class='bx bx-stopwatch'></i>
+                        <span>Time Complexity</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="div4">
+            <h2>Time complexity</h2>
+            <div class="algo-info">
+                <p>   
+                Time complexity is a measure used in computer science to analyze the efficiency of algorithms. It describes the amount of time an algorithm takes to complete as a function of the size of its input. Time complexity is usually expressed using Big O notation, which provides an upper bound on the growth rate of the runtime of an algorithm relative to the size of the input.<br>
+                </p>
+                <img src="/static/images/timecom.jpg" alt="Time complexity image" title="Time complexity image" style="height:250px;">
+            </div>
+            <h2>Space Complexity:</h2>
+            <div class="algo-info">
+                <p>
+                    Space Complexity is the total memory space required by the program for its execution.
+
+                    Both are calculated as the function of input size(n). One important thing here is that despite these parameters, the efficiency of an algorithm also depends upon the nature and size of the input. 
+                </p>
+            </div>
+            
+
+            <div class="algo-step">
+                <h3>Types of Time Complexity :</h4>
+                <ul>
+                    <li>
+                        <strong>Best Time Complexity:</strong> Define the input for which the algorithm takes less time or minimum time. In the best case calculate the lower bound of an algorithm. 
+                    </li>
+                    <li>
+                        Example: In the linear search when search data is present at the first location of large data then the best case occurs.
+                    </li>
+                    <li>
+                        <strong>Time Complexity:</strong>In the average case take all random inputs and calculate the computation time for all inputs.
+                        And then we divide it by the total number of inputs.
+                    </li>
+                    <li>
+                       <strong>Worst Time Complexity:</strong> Define the input for which algorithm takes a long time or maximum time. In the worst calculate the upper bound of an algorithm. Example: In the linear search when search data is present at the last location of large data then the worst case occurs.
+                    </li>
+                </ul>
+            </div>
+            <div class="timecom">
+                <h1>Time Complexity of Algorithms</h1>
+
+                <table>
+                <tr>
+                    <th>Algorithm</th>
+                    <th>Best Case</th>
+                    <th>Average Case</th>
+                    <th>Worst Case</th>
+                    <th>Space Complexity</th>
+                </tr>
+                <tr>
+                    <td>Selection Sort</td>
+                    <td>O(n)</td>
+                    <td>O(n²)</td>
+                    <td>O(n²)</td>
+                    <td>O(n)</td>
+                </tr>
+                <tr>
+                    <td>Bubble Sort</td>
+                    <td>O(n)</td>
+                    <td>O(n²)</td>
+                    <td>O(n²)</td>
+                    <td>O(1)</td>
+                </tr>
+                <tr>
+                    <td>Insertion Sort</td>
+                    <td>O(n)</td>
+                    <td>O(n²)</td>
+                    <td>O(n²)</td>
+                    <td>O(n)</td>
+                </tr>
+                <tr>
+                    <td>Heap Sort</td>
+                    <td>O(n)</td>
+                    <td>O(n log n)</td>
+                    <td>O(n log n)</td>
+                    <td>O(1)</td>
+                </tr>
+                <tr>
+                    <td>Quick Sort</td>
+                    <td>O(n log n)</td>
+                    <td>O(n log n)</td>
+                    <td>O(n²)</td>
+                    <td>O(log n) (average), O(n) (worst)</td>
+                </tr>
+                <tr>
+                    <td>Merge Sort</td>
+                    <td>O(n log n)</td>
+                    <td>O(n log n)</td>
+                    <td>O(n log n)</td>
+                    <td>O(n)</td>
+                </tr>
+                </table>
+            </div>
+               
+
+        </div>
+        
+    </div>
+    
+    <script src="/static/rabinKarpAlgo.js"></script>
+    <script src="./index.js" defer></script>
+    <script src="https://kit.fontawesome.com/6966f125a2.js" crossorigin="anonymous"></script>
+</body>
+</html>
+

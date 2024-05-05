@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorting visualizer</title>
+    <title>Naive-String visualizer</title>
     <link rel="stylesheet" href="/static/bsort.css"><link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-    
+    <link rel="stylesheet" href="/static/rabinKarpAlgo.css">
 </head>
 <body>
     <div class="parent">
         <div class="div1">
             <i class='bx bx-bar-chart-alt-2'></i>
-            <samp>Sorting Visualizer</samp> 
+            <samp>Naive-String Algorithm Visiualizer</samp> 
+      
 
         </div>
         <div class="div2">
@@ -21,7 +21,8 @@
                 <i class='bx bx-menu'></i>
                 <samp class="heading">Menu</samp>
             </div>
-
+       
+        
             <ul>
                 <li>
                     <a href="{{ url_for('dashboard') }}">
@@ -34,8 +35,8 @@
                     <span>Sorting Algorithm</span>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="{{ url_for('bsort')}}">
-                                <samp>Bubble Sorting</samp>
+                            <a href="{{ url_for('insert')}}">
+                                <samp>Insertion Sorting</samp>
                             </a>
                         </li>
                         <li>
@@ -43,13 +44,20 @@
                                 <samp>Selection Sort</samp>
                             </a>
                         </li>
+
                         <li>
                             <a href=" {{ url_for('qsort')}} ">
                                 <samp>Quick Sort</samp>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ url_for('bsort') }}">
+                                <samp>Bubble Sorting</samp>
+                            </a>
+                        </li>
                     </ul>
                 </li>
+
                 <li class="dropdown-toggle">
                     <i class='bx bxs-right-arrow bx-sm '></i>
                     <span>String matching Algorithm</span>
@@ -66,6 +74,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <div style="margin-top: 20px;"></div>
                 <li class="sub-menu">
                     <a href="{{ url_for('timecom')}}">
@@ -84,8 +93,8 @@
                         <i class='bx bx-code-alt'></i>
                         <span>Code</span>
                     </a>
-                </li> -->
-            </ul>
+                </li>
+            </ul> -->
         </div>
 
         <!-- <div class="div3">
@@ -97,11 +106,11 @@
                 <button onClick="msort()">Merge Sort</button>
             </div>
         </div> -->
-        <div class="div3">
+        <!-- <div class="div3">
             <div class="left">
                 <label for="inputValues"><h3>Enter values (comma-separated):</h3> </label>
                 <input type="text" id="inputValues" placeholder="Enter values" class="custom-input">
-            
+                
                 <div class="valuedisp">
                     <h4>Number of swaps: <span id="swapCount">0</span></h4>
                     <h4>Time taken: <span id="timeTaken">0 ms</span></h4>
@@ -118,61 +127,88 @@
                 <div id="container"></div>
                 <div class="button-container">
                     <button onClick="init()">init</button>
-                    <button onClick="insert()">Insertion Sort</button>
-                    <!-- <button onClick="bsort()">Bubble Sort</button>
-                    <button onClick="ssort()">Selection Sort</button> -->
+                    <button onClick="ssort()">Quick Sort</button>
+                    <!-- <button onClick="insert()">Insertion Sort</button>
+                    <button onClick="ssort()">Selection Sort</button> 
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="div4">
-            <h2>Insertion Sorting</h2>
-            <img src="/static/images/insertionsort.png" alt="insertion-short image" title="insertion sort image">
-            <p>Insertion sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.  However, its performance can degrade significantly for large input sizes due to its quadratic time complexity.</p>
+            <h2>Naive-String algorithm</h2>
+            <div class="algo-info">
+
+                <p>
+                    The naive string matching algorithm, also known as the Brute Force Algorithm, is a straightforward approach for searching a pattern or substring within a larger text. 
+                </p>
+                <img src="/static/images/nav.png.jpg" alt="Naive-String image">
+        </div>
+
             <div class="algo-step">
-                <h3>In Insertion Sort algorithm,</h4>
+                <h3>In Naive-String Matching algorithm,</h4>
                 <ul>
                     <li>
-                        To sort an array of size N in ascending order iterate over the array and compare the current element (key) to its predecessor.
+                        The algorithm starts by sliding the pattern over the text one character at a time. It compares each character of the text with the corresponding characters of the pattern.
                     </li>
                     <li>
-                        If the key element is smaller than its predecessor, compare it to the elements before.
+                        At each position, it checks if the characters match. If a match is found (i.e., all characters of the pattern match the corresponding characters in the text), it reports the occurrence of the pattern at that index.
                     </li>
                     <li>
-                        Move the greater elements one position up to make space for the swapped element.
+                        If no match is found, the algorithm slides the pattern by one position and repeats the process. It continues this sliding and checking until the entire text has been examined.
                     </li>
                     <li>
-                        <h4>Total no. of passes: n-1</h4>
+                        Whenever a complete match is found, the algorithm prints the index where the pattern occurs in the text.
+                    </li>
+                    
+                    <li>
+                        <h4>Its worst-case time complexity is <i>O(n<sup>2</sup>)</i>, when the pattern doesn’t appear in the text at all or appears only at the very end.</h4>
                     </li>
                     <li>
-                        <h4>Total no. of comparisons: n*(n-1)/2</h4>
+                        <h4>Its best-case time complexity is <i>O(n)</i>, when the pattern is found at the very beginning of the text.</i></h4>
                     </li>
+
                 </ul>
             </div>
-            <div class="code-container">
-                <div class="codes">
-                    <button  class="C++ code">C++</button>
-                    <button class="Python code">Python</button>
-                    <button class="Javascript code">Javascript</button>
-                    <button  class="C code">C</button>
-                </div>
-                <div id="code-snippet"></div>
-                <button id="copyBtn" >
-                    <i class='bx bx-clipboard' ></i>
-                    <!-- <i class='bx bx-clipboard bx-tada bx-rotate-90' ></i> -->
-                    Copy to Clipboard
-                </button>
-            </div>
+         
 
+            <div class="bottom-div">
+                <!-- <div class="working">
+              
+                    <h4>Input: arr[] = {6, 3, 0, 5}</h4>
+                    <h3>First Pass:</h3>
+                    <h4>The largest element is placed in its correct position, i.e., the end of the array.</h4> 
+                    <img src="/static/images/bsort1.png">
+                    <h3>Second Pass: </h3>
+                    <h4>Place the second largest element at correct position </h4>
+                    <img src="/static/images/bsort2.png">
+                    <h3>Third Pass: </h3>
+                    <h4>Place the remaining two elements at their correct positions.</h4>
+                    <img src="/static/images/bsort3.png">
+                    
+                </div>    -->
+                <div class="code-container">
+                    <div class="codes">
+                        <button  class="C++ code">C++</button>
+                        <button class="Python code">Python</button>
+                        <button class="Javascript code">Javascript</button>
+                        <button  class="C code">C</button>
+                    </div>
+                    <div id="code-snippet">
+                        wwe
+                    </div>
+                    <button id="copyBtn" >
+                        <i class='bx bx-clipboard' ></i>
+                        <!-- <i class='bx bx-clipboard bx-tada bx-rotate-90' ></i> -->
+                        Copy to Clipboard
+                    </button>
+                </div>          
+            </div>
         </div>
     </div>
-   
-   
-    
-    <script src="../static/index.js" defer></script>
-    <script src="/static/insert.js" defer></script>
 
-    <script src="https://kit.fontawesome.com/6966f125a2.js" crossorigin="anonymous"></script>
     
+    <script src="/static/naive-string.js"></script>
+    <script src="./index.js" defer></script>
+    <script src="https://kit.fontawesome.com/6966f125a2.js" crossorigin="anonymous"></script>
 </body>
-</html>
+</html>>

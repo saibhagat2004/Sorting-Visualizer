@@ -1,0 +1,27 @@
+table {
+    border-collapse: collapse;
+    width: 70%;
+    height:350px;
+    margin: 20px auto;
+    border: 3px solid black;
+  }
+  
+  th {
+    background-color: rgb(33, 33, 33);
+    color: white; /* Background color for the top row */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2; /* Even rows have a light grey background */
+  }
+  
+  tr:nth-child(odd) {
+    background-color: white; /* Odd rows have a white background */
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  

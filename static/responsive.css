@@ -158,7 +158,7 @@ body {
     
     /* Initially hide the dropdown menu */
     .dropdown-menu {
-        display: none;
+        display: block;
     }
     
     .dropdown-menu  li a samp {
@@ -177,7 +177,17 @@ body {
     h1 {
         color: #333;
     }
+
+    .r{
+        display: flex;
+        align-items: center;
+      
+    }
     
+    a {
+        color: white;
+        text-decoration: none;
+    }
     #container {
         display: flex;
         /* align-items: center; */

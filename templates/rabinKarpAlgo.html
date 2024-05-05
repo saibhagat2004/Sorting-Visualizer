@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorting visualizer</title>
+    <title>Rabin Karp </title>
     <link rel="stylesheet" href="/static/bsort.css"><link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="/static/rabinKarpAlgo.css">
     
 </head>
 <body>
     <div class="parent">
         <div class="div1">
-            <div class="l">  <i class='bx Sorting visualizerbx-bar-chart-alt-2'></i>
-                <samp>Sorting Visiualizer</samp></div>
-        </div> 
-  
+            <i class='bx bx-bar-chart-alt-2'></i>
+            <samp>Rabin-Karp Algorithm Visiualizer</samp> 
+
+        </div>
         <div class="div2">
             <div class="top">
                 <i class='bx bx-menu'></i>
@@ -35,12 +35,17 @@
                     <span>Sorting Algorithm</span>
                     <ul class="dropdown-menu">
                         <li>
+                            <a href="{{ url_for('bsort') }}">
+                                <samp>Bubble Sorting</samp>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ url_for('insert')}}">
                                 <samp>Insertion Sorting</samp>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url_for('ssort')}}">
+                            <a href=" {{ url_for('ssort')}} ">
                                 <samp>Selection Sort</samp>
                             </a>
                         </li>
@@ -51,19 +56,6 @@
                         </li>
                     </ul>
                 </li>
-                <!-- <li class="sub-menu">
-                    <a href="#">
-                        <i class='bx bx-stopwatch'></i>
-                        <span>Time Complexity</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="#">
-                        <i class='bx bx-code-alt'></i>
-                        <span>Code</span>
-                    </a>
-                </li> -->
-                <div style="margin-top: 20px;"></div>
                 <li class="dropdown-toggle">
                     <i class='bx bxs-right-arrow bx-sm '></i>
                     <span>String matching Algorithm</span>
@@ -89,18 +81,8 @@
                 </li>
             </ul>
         </div>
-
-        <!-- <div class="div3">
-            <div id="container"></div>
-            <div>
-                <button onClick="init()">init</button>
-                <button onClick="bsort()">Bubble Sort</button>
-                <button onClick="insert()">Insertion Sort</button>
-                <button onClick="msort()">Merge Sort</button>
-            </div>
-        </div> -->
-        <div class="div3">
-            <div class="left">
+             
+            <!-- <div class="left">
                 <label for="inputValues"><h3>Enter values (comma-separated):</h3> </label>
                 <input type="text" id="inputValues" placeholder="Enter values" class="custom-input">
                 
@@ -120,45 +102,61 @@
                 <div id="container"></div>
                 <div class="button-container">
                     <button onClick="init()">init</button>
-                    <button onClick="bsort()">Bubble Sort</button>
+                    <button onClick="ssort()">Quick Sort</button>
                     <!-- <button onClick="insert()">Insertion Sort</button>
-                    <button onClick="ssort()">Selection Sort</button> -->
+                    <button onClick="ssort()">Selection Sort</button> 
                 </div>
             </div>
-        </div>
+        </div> --> -->
 
         <div class="div4">
-            <h2>Bubble Sorting</h2>
-            <img src="/static/images/bubble-short.png" alt="bubble-short image" title="bubble sort image">
-            <p>Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data sets as its average and worst-case time complexity is quite high.</p>
+            <h2>Rabin-Karp algorithm</h2>
+            <div class="algo-info">
+
+                <p>
+                    The Rabin-Karp algorithm is a string-searching algorithm that efficiently finds occurrences of a pattern within a given text. Unlike the naive string matching algorithm, which checks every character one by one, Rabin-Karp uses hashing to filter out substrings that do not match the pattern.
+                </p>
+                <img src="/static/images/rabin_img.jpg" alt="Rabin-Karp image" title="bubble sort image">
+        </div>
+
             <div class="algo-step">
-                <h3>In Bubble Sort algorithm,</h4>
+                <h3>In Rabin-Karp algorithm,</h4>
                 <ul>
                     <li>
-                        traverse from left and compare adjacent elements and the higher one is placed at right side. 
+                        Choose a suitable prime number (p) as the modulus to avoid overflow issues.
                     </li>
                     <li>
-                        In this way, the largest element is moved to the rightmost end at first. 
+                        Select a base b (often the size of the character set, e.g., 256 for ASCII characters).
                     </li>
                     <li>
-                        This process is then continued to find the second largest and place it and so on until the data is sorted.
+                        Initialize the hash value to 0.
                     </li>
                     <li>
-                        <h4>Total no. of passes: n-1</h4>
+                        Calculate the initial hash value for the pattern by iterating over each character in the pattern.
                     </li>
                     <li>
-                        <h4>Total no. of comparisons: n*(n-1)/2</h4>
+                        Slide the pattern over the text and update the hash value for each subsequent substring.
+                    </li>
+                    <li>
+                        The hash value is calculated using a rolling hash function.
+                    </li>
+                    <li>
+                        This function allows efficient updates to the hash value for a new substring by removing the contribution of the old character and adding the contribution of the new character.
+                    </li>
+                    
+                    <li>
+                        <h4>Its average-case and best-case time complexity is <i>O(n + m)</i></h4>
+                    </li>
+                    <li>
+                        <h4>Its worst-case time complexity is <i>O(nm)</i></h4>
                     </li>
 
                 </ul>
             </div>
          
-            <h2>How does Bubble Sort Work? </h2>
-            <h3>Let us understand the working of bubble sort with the help of the following illustration:
-            </h3>
 
             <div class="bottom-div">
-                <div class="working">
+                <!-- <div class="working">
               
                     <h4>Input: arr[] = {6, 3, 0, 5}</h4>
                     <h3>First Pass:</h3>
@@ -171,7 +169,7 @@
                     <h4>Place the remaining two elements at their correct positions.</h4>
                     <img src="/static/images/bsort3.png">
                     
-                </div>   
+                </div>    -->
                 <div class="code-container">
                     <div class="codes">
                         <button  class="C++ code">C++</button>
@@ -179,7 +177,9 @@
                         <button class="Javascript code">Javascript</button>
                         <button  class="C code">C</button>
                     </div>
-                    <div id="code-snippet"></div>
+                    <div id="code-snippet">
+                        wwe
+                    </div>
                     <button id="copyBtn" >
                         <i class='bx bx-clipboard' ></i>
                         <!-- <i class='bx bx-clipboard bx-tada bx-rotate-90' ></i> -->
@@ -187,16 +187,12 @@
                     </button>
                 </div>          
             </div>
-            
-
-       
-        
         </div>
     </div>
 
     
-    <script src="/static/index.js" defer></script>
+    <script src="/static/rabinKarpAlgo.js"></script>
+    <script src="./index.js" defer></script>
     <script src="https://kit.fontawesome.com/6966f125a2.js" crossorigin="anonymous"></script>
-    <script src="/static/bsort.js"></script>
 </body>
-</html>>
+</html>

@@ -1,0 +1,25 @@
+.div2{
+    margin-bottom: 1%;
+}
+.div4 {
+    grid-area: 2 / 2 / 6 / 8;
+    min-width: 820px;
+    margin: 0 0.7% 0.7% 0;
+}
+
+.algo-step{
+    width: 100%;
+    min-height: 422px;
+    /* min-width: 995px; */
+    max-width: 100%;
+}
+
+.algo-info{
+    /* min-height: 420px; */
+    display: flex;
+    width: 100%;
+}
+
+.algo-info img{
+    aspect-ratio: 16/9;
+}

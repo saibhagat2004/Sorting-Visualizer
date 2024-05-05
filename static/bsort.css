@@ -43,6 +43,12 @@ body {
     z-index: 100; /* Optional: Add a z-index to control the stacking order */
 }
 
+.div1 {
+    
+    display: flex;
+    flex-direction: row;
+}
+
 .div2 {
     grid-area: 2 / 1 / 6 / 2;
     font-size: 25px;
@@ -132,9 +138,9 @@ body {
 }
 
 /* Initially hide the dropdown menu */
-.dropdown-menu {
+/* .dropdown-menu {
     display: none;
-}
+} */
 
 .dropdown-menu  li a samp {
     font-size: 20px;
@@ -293,4 +299,10 @@ button:focus {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.div1 {
+    
+    display: flex;
+    flex-direction: row;
 }

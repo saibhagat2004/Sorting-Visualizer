@@ -366,3 +366,4 @@ function animate(moves) {
 
 // Initial update of the displayed speed value
 updateSpeedValue(animationSpeed);
+ 

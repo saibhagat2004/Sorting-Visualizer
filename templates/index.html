@@ -13,7 +13,13 @@
         <div class="div1">
             <div class="l">  <i class='bx Sorting visualizerbx-bar-chart-alt-2'></i>
                 <samp>Sorting Visiualizer</samp></div>
-            <div class="r"> <p>{{username}}</p>  </div>
+            <div class="r"> <p>{{username}}</p>
+                <a href="{{ url_for('logout') }}">
+                    &nbsp;
+                    <samp>logout</samp>
+                </a>
+            </div>
+
            
 
         </div>
@@ -52,17 +58,38 @@
                             </a>
                         </li>
                     </ul>
+                    
                 </li>
-                <li class="sub-menu">
-                    <a href="#">
-                        <i class='bx bx-stopwatch'></i>
-                        <span>Time Complexity</span>
-                    </a>
-                </li>
+                <div style="margin-top: 20px;"></div>
+                <!-- 
+                    
                 <li class="sub-menu">
                     <a href="#">
                         <i class='bx bx-code-alt'></i>
                         <span>Code</span>
+                    </a>
+                </li> -->
+                <li class="dropdown-toggle">
+                    <i class='bx bxs-right-arrow bx-sm '></i>
+                    <span>String matching Algo</span>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ url_for('naive')}}">
+                                <samp>Naive-String Algorithm</samp>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('rabin')}}">
+                                <samp>Rabin-Karp</samp>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <div style="margin-top: 20px;"></div>
+                <li class="sub-menu">
+                    <a href="{{ url_for('timecom')}}">
+                        <i class='bx bx-stopwatch'></i>
+                        <span>Time Complexity</span>
                     </a>
                 </li>
             </ul>
@@ -119,9 +146,7 @@
                     <button onClick="qsort()">Quick Sort</button>
                     <!-- <select id="algorithmSelect">
                         <option value="bubbleSort">Bubble Sort</option>
-                        <!-- Add options for other sorting algorithms if needed -->
-                    <!-- </select>
-                    <button onclick="singleStep()">Single Step</button> --> -->
+                    <button onclick="singleStep()">Single Step</button> --> 
                     
                     <!-- <button onclick="toggleAnimation()">Pause/Resume</button>
                     <button onclick="restartAnimation()">Restart</button> -->
